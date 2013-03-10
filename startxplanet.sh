@@ -88,9 +88,10 @@ then
    # check to ensure the cloud image was downloaded successfully and is > 0 bytes
    if(test -s $cloudmap) then
       echo ' cloud image download complete '
+      rm ${cloudmap}.bak $cloudmap 
    else
       echo ' cloud image download failed, reverting to backup '
-      cp ${cloudmap}.bak $cloudmap
+      mv ${cloudmap}.bak $cloudmap
    fi
    # incorporate the new cloud map into the xplanet day and night images
    # creating day_clouds.jpg and night_clouds.jpg
@@ -111,9 +112,10 @@ then
    # check to ensure the ISS file was downloaded successfully and is > 0 bytes
    if(test -s ${issfile}.tle) then
       echo ' orbital data complete '
+      rm ${issfile}.tle ${issfile}.bak
    else
       echo ' orbital data download failed, reverting to backup '
-      cp ${issfile}.bak ${issfile}.tle
+      mv ${issfile}.bak ${issfile}.tle
    fi
 fi
 
