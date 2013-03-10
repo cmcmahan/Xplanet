@@ -1,0 +1,30 @@
+# Windows users will have to use the POSIX definition style
+# std offset dst [offset],start[/time],end[/time]
+#
+# 'GMT+0BST,M4.1.0/1,M10.5.0/2' => "Greenwich with British Summer Time",
+#
+# The syntax is described at
+# http://www.opengroup.org/onlinepubs/007904975/functions/tzset.html
+# http://www.gnu.org/software/libc/manual/html_node/TZ-Variable.html
+# standard timezone abbreviations can be found here
+# http://www.worldtimezone.com/wtz-names/timezonenames.html
+# http://www.timeanddate.com/
+#
+# starting in 2007, new time zone dates for the US are 2d Sunday in
+# March to the 1st Sunday in November
+# 'EST+5EDT,M3.2.0/2,M11.1.0/2' => 'Eastern Time with Daylight Savings Time',
+#
+# font sizes are set the the config file in the parent directory
+
+# Personal interest
+#39.30  -84.28 "Loveland %H:%M  "       align=left  color=PaleGreen4 timezone=EST+5EDT,M3.2.0/2,M11.1.0/2
+#38.16  -76.25 " Patuxent River %H:%M"  align=right color=PaleGreen4 timezone=EST+5EDT,M3.2.0/2,M11.1.0/2
+#31.78   35.22 "Jerusalem %H:%M (%a)  " align=left  color=PaleGreen4 timezone=IST-2 
+
+# show the sun and moon. Image format would be 
+# image=<imagename.ext> transparent={x,x,x}
+# where xxx represented the decimal color
+# representations for RGB (0-255)
+# gif images don't work, but png do
+position=moon "Moon" color={196,196,196}  symbolsize=4
+position=sun  "Sun"  color=yellow symbolsize=4

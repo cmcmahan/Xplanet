@@ -1,0 +1,7 @@
+#!/bin/zsh
+START=1
+END=10
+INCR=1.25
+for ((x = START; x <= END; x += INCR)); do
+  echo $x
+done

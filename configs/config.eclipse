@@ -1,0 +1,190 @@
+# This file contains options you might want to customize for each
+# body.  It's best to leave this file alone and modify a copy. Use the
+# -config option to tell xplanet to read your copy.
+
+#########################
+[default]
+grid=false
+grid1=6
+grid2=15
+magnify=1   # draw the body as if its radius were magnified by this factor 
+shade=80    # 0 = black, 100 = same as dayside
+text_color={0,255,255} # color for text (markers & body label)
+twilight=2  # blend the day and night images for pixels within this
+            # many degrees of the terminator
+
+#########################
+[sun]
+"Sun"
+color={255,255,166}
+max_radius_for_label=0          # never draw a label for the sun
+shade=100			# No night side!
+
+#########################
+[mercury]
+"Mercury"
+color={100, 100, 100}
+min_radius_for_label=0          # always draw a label
+
+#########################
+[venus]
+"Venus"
+color={161, 129, 70}
+min_radius_for_label=0
+
+#########################
+[earth]
+"Earth"
+grid=false
+color={64,64,128}
+min_radius_for_label=0
+shade=80
+map=day_clouds.jpg
+night_map=night_clouds.jpg
+#satellite_file=iss
+specular_map=earthspec.jpg
+marker_file=eclipse.earth
+#marker_color=orange
+marker_font=verdana.ttf
+marker_fontsize=14
+arc_file=equator
+#arc_file=prime-meridian
+#arc_file=tropics
+
+#########################
+[moon]
+"Moon"
+color={100, 100, 100}
+
+#########################
+[mars]
+"Mars"
+color={172, 123, 67}
+min_radius_for_label=0
+
+#########################
+[phobos]
+"Phobos"
+
+#########################
+[deimos]
+"Deimos"
+
+#########################
+[jupiter]
+"Jupiter"
+color={204, 163, 133}
+min_radius_for_label=0
+
+#########################
+[io]
+"Io"
+color={212, 182, 52}
+
+#########################
+[europa]
+"Europa"
+color={140, 140, 140}
+
+#########################
+[ganymede]
+"Ganymede"
+color={150, 150, 150}
+
+#########################
+[callisto]
+"Callisto"
+color={70, 70, 70}
+
+#########################
+[saturn]
+"Saturn"
+color={244, 199, 134}
+min_radius_for_label=0
+
+#########################
+[mimas]
+"Mimas"
+
+#########################
+[enceladus]
+"Enceladus"
+
+#########################
+[tethys]
+"Tethys"
+
+#########################
+[dione]
+"Dione"
+
+#########################
+[rhea]
+"Rhea"
+
+#########################
+[titan]
+"Titan"
+color={252,94,7}
+
+#########################
+[hyperion]
+"Hyperion"
+
+#########################
+[iapetus]
+"Iapetus"
+
+#########################
+[phoebe]
+"Phoebe"
+
+#########################
+[uranus]
+"Uranus"
+color={105, 197, 238}
+min_radius_for_label=0
+
+#########################
+[miranda]
+"Miranda"
+
+#########################
+[ariel]
+"Ariel"
+
+#########################
+[umbriel]
+"Umbriel"
+
+#########################
+[titania]
+"Titania"
+
+#########################
+[oberon]
+"Oberon"
+
+#########################
+[neptune]
+"Neptune"
+color={95, 133, 232}
+min_radius_for_label=0
+
+#########################
+[triton]
+"Triton"
+
+#########################
+[nereid]
+"Nereid"
+
+#########################
+[pluto]
+"Pluto"
+color={206, 180, 153}
+min_radius_for_label=0
+
+#########################
+[charon]
+"Charon"

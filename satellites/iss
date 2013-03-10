@@ -1,0 +1,5 @@
+#############################
+# Get the latest orbital elements from celestrak.com:
+# wget -O iss.tle http://www.celestrak.com/NORAD/elements/stations.txt
+
+25544 " ISS  " align=left color={196,196,196} trail={ground,-8,0,2}

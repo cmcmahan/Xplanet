@@ -1,0 +1,57 @@
+# start in the ~/.xplanet directory
+
+# flat projection of earth with shadow, updates every 10 minutes
+xplanet -searchdir ~/.xplanet -config ~/.xplanet/configs/default.config -geometry 1920x1200 -projection rectangular -label -labelpos "-10-10" -label_string "." -date_format "%d %b %y %R" -font verdana.ttf -color white -fontsize 18 -wait 600 &
+
+# flat projection of earth with shadow, loads only once
+xplanet -searchdir ~/.xplanet -config ~/.xplanet/configs/default.config -geometry 1920x1200 -projection rectangular -label -labelpos "-10-10" -label_string "." -date_format "%d %b %y %R" -font verdana.ttf -color white -fontsize 18 -num_times 1 
+
+# flat projection of subdued earth with clouds, updates every 30 seconds.
+xplanet -searchdir ~/.xplanet -config ~/.xplanet/configs/config.clouds_subdued -geometry 1920x1200 -projection rectangular -label -labelpos "-10-10" -label_string "." -date_format "%d %b %y %R" -font verdana.ttf -color white -fontsize 18 -wait 30
+
+# flat projection of earch with shadows, subdued image using subdued config file, updates once
+xplanet -searchdir ~/.xplanet -config ~/.xplanet/configs/config.clouds_subdued -geometry 1920x1200 -projection rectangular -label -labelpos "-10-10" -label_string "." -date_format "%d %b %y %R" -font verdana.ttf -color white -fontsize 18 -num_times 1 
+
+
+# Jupiter
+xplanet -searchdir ~/.xplanet -light_time -origin earth -body saturn -radius 70 -north orbit -date 19951228.060000 -utclabel -num_times 1
+
+# Looking at the Sun through Saturn's rings from Iapetus
+xplanet -searchdir ~/.xplanet -origin iapetus -body sun -radius 2 -date 18891102.103000 -label -font comic.ttf -fontsize 18 -num_times 1
+
+# Mars
+xplanet -searchdir ~/.xplanet -light_time -origin earth -body mars -radius 70 -north orbit -utclabel -num_times 1
+
+# Mars from Earth (magnified)
+xplanet -searchdir ~/.xplanet -origin earth -body mars -radius 40 -north orbit -utclabel -num_times 1
+
+# Saturn
+xplanet -searchdir ~/.xplanet -light_time -origin earth -body saturn -radius 70 -north orbit -utclabel -num_times 1
+
+# Jupiter and Moons with shadows from Callisto
+xplanet -searchdir ~/.xplanet -origin callisto -body io -radius 3 -date 19971111.034500 -num_times 1
+
+# Venus in front of Sun
+xplanet -searchdir ~/.xplanet -origin earth -body sun -radius 30 -date 20040608.070000 -num_times 1
+
+# Sun Venus and Earth
+xplanet -searchdir ~/.xplanet -range 20 -radius 30 -localtime 23.8 -lat -21 -date 20040608.070000 -num_times 1
+
+# Jupiter and moons from Earth
+xplanet -searchdir ~/.xplanet -utclabel -light_time -origin earth -target jupiter -rotate 180 -grs_longitude 98 -date 20050615.104300 -geometry 1920x1200 -num_times 1
+
+# eclipse of 29 Mar 2006 over the Sahara Desert rectangular
+xplanet -searchdir ~/.xplanet -config ~/.xplanet/configs/default.config -geometry 1920x1200 -projection rectangular -label -labelpos "-10-10" -label_string "." -date_format "%d %b %y %R" -font micross.ttf -color yellow -fontsize 18 -date 20060329.101500 -num_times 1
+
+# eclipse of 29 Mar 2006 over the Sahara Desert globe
+xplanet -searchdir ~/.xplanet -config ~/.xplanet/configs/default.config -geometry 1920x1200 -label -labelpos "-10-10" -label_string "." -date_format "%d %b %y %R" -font micross.ttf -color yellow -fontsize 18 -date 20060329.101500 -num_times 1
+
+# generate 240 images of the 29 March 2006 eclipse sequence covering 1 hour from its start
+xplanet -searchdir ~/.xplanet -config ~/.xplanet/configs/eclipse.config -projection rectangular -gmtlabel -labelpos "-10-10" -label_string "." -date_format "%d %b %y %R" -font verdana.ttf -color yellow -fontsize 18 -date 20060329.080000 -timewarp 8 -wait 15 -num_times 360 -output eclipse.jpg -geometry 800x400
+
+# partial eclipse in Asia/India on 19 Mar 2007
+xplanet -searchdir ~/.xplanet -config ~/.xplanet/configs/eclipse.config -geometry 1920x1200 -projection rectangular -label -labelpos "-20-20" -label_string " " -date_format "%d %b %y %R" -font verdana.ttf -color white -fontsize 18 -date 20070319.023000
+
+# current phase of the moon
+xplanet -body moon -radius 40%
+

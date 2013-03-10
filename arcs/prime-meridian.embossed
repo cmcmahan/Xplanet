@@ -1,0 +1,3 @@
+# Prime Meridian
+00.1  00.0  89.9 00.0 color={92,92,92} spacing=0.5 # Prime meridian North
+-89.9 00.0 -00.1 00.0 color={92,92,92} spacing=0.5 # Prime meridian South

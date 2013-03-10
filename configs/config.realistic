@@ -1,0 +1,23 @@
+# This file contains options you might want to customize for each
+# body. Use the -config option to tell xplanet to read your copy.
+
+#########################
+[default]
+grid=false
+grid1=6
+grid2=15
+
+magnify=1  # draw the body as if its radius were magnified by this factor 
+twilight=6 # blend the day and night images 
+
+#########################
+[earth]
+"Earth"
+min_radius_for_label=0
+map=day_map_realistic.jpg
+night_map=night_map_realistic.jpg
+cloud_map=clouds.jpg
+specular_map=earthspec.jpg
+bump_map=earthbump.jpg
+bump_scale=1
+color={225,225,225}

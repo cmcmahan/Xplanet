@@ -1,0 +1,4 @@
+# Equator
+00.0 -179.9 00.0 -00.1 color={128,128,128} spacing=0.5 # equator
+00.0 00.1 00.0 179.9 color={128,128,128} spacing=0.5 # equator
+

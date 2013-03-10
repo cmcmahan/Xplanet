@@ -1,0 +1,4 @@
+# Equator
+# colors for the ancient map color={89,69,19}
+00.0 -179.9 00.0 -00.1 color={92,92,92} spacing=0.5 # western equator
+00.0 00.1 00.0 179.9   color={92,92,92} spacing=0.5 # eastern equator

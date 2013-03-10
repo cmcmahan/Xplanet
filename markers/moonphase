@@ -1,0 +1,27 @@
+# Moonphase marker file created by moon.pl
+# Last updated on 2011-05-23 07:58:18
+
+# Raw Data from the Astro::Moonphase package
+# moon_phase: 0.709877869550664
+# moon_illum: 0.624716536915608
+# moon_age:   20.9631113787354
+# moon_dist:  397383.205240112
+# moon_ang:   0.5011740694468
+# sun_dist:   151480054.588017
+# sun_ang:    0.526505943801722
+
+50 170 position=pixel image=none align=left  fontsize=18 color=white "Last New Moon:"
+50 182 position=pixel image=none align=right fontsize=18 color=cyan "Tue May  3"
+75 170 position=pixel image=none align=left  fontsize=18 color=white "First Quarter:"
+75 182 position=pixel image=none align=right fontsize=18 color=cyan "Tue May 10"
+100 170 position=pixel image=none align=left  fontsize=18 color=white "Full Moon:"
+100 182 position=pixel image=none align=right fontsize=18 color=cyan "Tue May 17"
+125 170 position=pixel image=none align=left  fontsize=18 color=white "Last Quarter:"
+125 182 position=pixel image=none align=right fontsize=18 color=cyan "Tue May 24"
+150 170 position=pixel image=none align=left  fontsize=18 color=white "Next New Moon:"
+150 182 position=pixel image=none align=right fontsize=18 color=cyan "Wed Jun  1"
+175 170 position=pixel image=none align=left  fontsize=18 color=white "Current Illum:"
+175 182 position=pixel image=none align=right fontsize=18 color=cyan "62%"
+200 170 position=pixel image=none align=left  fontsize=18 color=white "Current Age:"
+200 182 position=pixel image=none align=right fontsize=18 color=cyan "20"
+190 260 position=pixel image=/Users/cmcmahan/.xplanet/images/moonphases/moon20.png transparent={0,0,0}
