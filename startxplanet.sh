@@ -40,7 +40,7 @@ configfile=${xplanetdir}/configs/${config}
 cloudmap=${xplanetdir}/clouds.jpg
 issfile=${xplanetdir}/satellites/iss
 
-cloudsite=ftp://ftp.iastate.edu/pub/xplanet/clouds_2048.jpg #http://xplanet.sourceforge.net/clouds/clouds_2048.jpg
+cloudsite=http://xplanet.sourceforge.net/clouds/clouds_2048.jpg
 isssite=http://www.celestrak.com/NORAD/elements/stations.txt
 refresh=30
 
@@ -88,7 +88,7 @@ then
    # check to ensure the cloud image was downloaded successfully and is > 0 bytes
    if(test -s $cloudmap) then
       echo ' cloud image download complete '
-      rm ${cloudmap}.bak $cloudmap 
+      rm ${cloudmap}.bak
    else
       echo ' cloud image download failed, reverting to backup '
       mv ${cloudmap}.bak $cloudmap
@@ -112,7 +112,7 @@ then
    # check to ensure the ISS file was downloaded successfully and is > 0 bytes
    if(test -s ${issfile}.tle) then
       echo ' orbital data complete '
-      rm ${issfile}.tle ${issfile}.bak
+      rm ${issfile}.bak
    else
       echo ' orbital data download failed, reverting to backup '
       mv ${issfile}.bak ${issfile}.tle
