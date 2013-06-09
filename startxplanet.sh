@@ -3,11 +3,11 @@
 
 ##============================================================
 # Cloud sources
+# http://user.chol.com/~winxplanet/cloud_data/clouds_2048.jpg
+# http://xplanetclouds.com/free/local/clouds_2048.jpg (2 d/l per day limit)
 # http://xplanet.sourceforge.net/clouds/clouds_2048.jpg
 # http://xplanetclouds.com/free/coral/clouds_2048.jpg (created once per day)
-# http://xplanetclouds.com/free/local/clouds_2048.jpg (2 d/l per day limit)
 # http://xplanet.dyndns.org/clouds/clouds_2048.jpg, (older 1x/day?)
-# http://user.chol.com/~winxplanet/cloud_data/clouds_2048.jpg
 # http://home.megapass.co.kr/~gitto88/cloud_data/clouds_2048.jpg
 # ftp://ftp.iastate.edu/pub/xplanet/clouds_2048.jpg
 # http://taint.org/xplanet/day_clouds_2048x1024.png (completed xplanet rendering, updated hourly)
@@ -40,7 +40,7 @@ configfile=${xplanetdir}/configs/${config}
 cloudmap=${xplanetdir}/clouds.jpg
 issfile=${xplanetdir}/satellites/iss
 
-cloudsite=http://xplanet.sourceforge.net/clouds/clouds_2048.jpg
+cloudsite=http://xplanetclouds.com/free/coral/clouds_2048.jpg
 isssite=http://www.celestrak.com/NORAD/elements/stations.txt
 refresh=30
 

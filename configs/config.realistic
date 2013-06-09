@@ -8,7 +8,7 @@ grid1=6
 grid2=15
 
 magnify=1  # draw the body as if its radius were magnified by this factor 
-twilight=6 # blend the day and night images 
+twilight=4 # blend the day and night images 
 
 #########################
 [earth]
