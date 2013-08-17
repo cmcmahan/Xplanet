@@ -24,6 +24,23 @@
 
 
 #============================================================
+## contents for /Library/LaunchAgents/com.mcmahan.xplanet.plist
+#<?xml version="1.0" encoding="UTF-8"?>
+#<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+#<plist version="1.0">
+#  <dict>
+#    <key>Label</key>
+#    <string>com.mcmahan.xplanet</string>
+#    <key>ProgramArguments</key>
+#    <array>
+#      <string>/Users/cmcmahan/Xplanet/xplanet.sh</string>
+#    </array>
+#    <key>StartInterval</key>
+#    <integer>300</integer>
+#  </dict>
+#</plist>
+
+#============================================================
 # Set up default values
 user=cmcmahan
 home=/Users/${user}
@@ -37,7 +54,7 @@ outputfile=${outputdir}/${NOW}.jpg
 cloudmap=${xplanetdir}/clouds.jpg
 issfile=${xplanetdir}/satellites/iss
 
-cloudsite=http://xplanetclouds.com/free/coral/clouds_2048.jpg
+cloudsite=http://xplanet.sourceforge.net/clouds/clouds_2048.jpg
 isssite=http://www.celestrak.com/NORAD/elements/stations.txt
 refresh=30
 
@@ -46,31 +63,26 @@ fontsize=15
 
 #============================================================
 # clear any command-line args
-cloudflag=
-orbitflag=
-startflag=
+cloudflag=0
+orbitflag=0
+startflag=0
+verboseflag=0
 
-#============================================================
-# Parse the command-line arguments
+##============================================================
+## Parse the command-line arguments
 while getopts 'cmos' OPTION
-do
-   case $OPTION in
-   c) cloudflag=1 ;;
-   o) orbitflag=1 ;;
-   s) startflag=1 ;;
-   ?) printf "Usage: %s: [options]
-Options are:
- -c Download latest cloud image
- -o Download latest orbital data
- -s Start (restart) Xplanet
- -h Print this help\n" $(basename $0) >&2
-   exit 2        ;;
-   esac
-done
+  do
+    case $OPTION in
+      c) cloudflag=1 ;;
+      o) orbitflag=1 ;;
+      s) startflag=1 ;;
+    esac
+  done
 shift $(($OPTIND - 1))
 
+#============================================================
 # change to the appropriate directory
-pushd $xplanetdir
+pushd $xplanetdir > /dev/null
 
 #============================================================
 # Download updated cloud map overlaid on the day and night images.
@@ -78,87 +90,59 @@ pushd $xplanetdir
 # current directory named day_clouds.jpg and night_clouds.jpg.
 if [ "$cloudflag" ]
 then
-    echo ''
-    echo ' getting new cloud image'
     mv $cloudmap ${cloudmap}.bak
-    wget ${cloudsite} -O ${cloudmap}
+    curl -s -L ${cloudsite} -o ${cloudmap}
 
    # check to ensure the cloud image was downloaded successfully and is > 0 bytes
    if(test -s $cloudmap) then
-      echo ' cloud image download complete '
       rm ${cloudmap}.bak
    else
-      echo ' cloud image download failed, reverting to backup '
       mv ${cloudmap}.bak $cloudmap
    fi
    # incorporate the new cloud map into the xplanet day and night images
    # creating day_clouds.jpg and night_clouds.jpg
-   #echo 'xplanet -searchdir '${xplanetdir}' -tmpdir '${xplanetdir}' -config '${configfile}' -make_cloud_maps'
    xplanet -searchdir ${xplanetdir} -tmpdir ${xplanetdir} -config ${configfile} -make_cloud_maps
-   echo ' Cloud map incorporated '
 fi
 
 #============================================================
 # Download the latest the ISS orbital data
 if [ "$orbitflag" ]
 then
-   echo ''
-   echo ' getting new orbital data'
    mv ${issfile}.tle ${issfile}.bak
-   wget ${isssite} -O ${issfile}.tle 
+   curl -s -L ${isssite} -o ${issfile}.tle 
 
    # check to ensure the ISS file was downloaded successfully and is > 0 bytes
    if(test -s ${issfile}.tle) then
-      echo ' orbital data complete '
       rm ${issfile}.bak
    else
-      echo ' orbital data download failed, reverting to backup '
       mv ${issfile}.bak ${issfile}.tle
    fi
 fi
 
-# This command starts xplanet and uses the cloud maps generated above
+#============================================================
+# Start the xplanet program
 if [ "$startflag" ]
 then
-   echo ''
-   echo ' starting xplanet'
-   echo ''
-   echo ' Killing any existing xplanet instances'
-   killall -u ${user} -m xplanet
+    rm -f ${outputdir}/*
 
-   echo ' Deleting existing desktop image'
-   rm -f ${outputdir}/*
-
-echo ''
-echo \
-" xplanet \
--searchdir ${xplanetdir} \
--config ${configfile} \
--font ${font} \
--fontsize ${fontsize} \
--color gray50 \
--geometry 1920x1200 \
--projection rectangular \
--date_format \"%d %b %y %R\" \
--label -labelpos \"-10-10\" -label_string \".\" \
---output ${outputfile}"
-
-xplanet \
--searchdir ${xplanetdir} \
--config ${configfile} \
--font ${font} \
--fontsize ${fontsize} \
--color gray50 \
--geometry 1920x1200 \
--projection rectangular \
--date_format "%d %b %y %R" \
--label -labelpos "-10-10" -label_string "." \
--num_times 1 \
---output ${outputfile}
-
+    # start xplanet 
+    xplanet \
+	-searchdir ${xplanetdir} \
+	-config ${configfile} \
+	-font ${font} \
+	-fontsize ${fontsize} \
+	-color gray50 \
+	-geometry 1920x1200 \
+	-projection rectangular \
+	-date_format "%d %b %y %R" \
+	-label -labelpos "-10-10" -label_string "." \
+	-wait ${refresh}
+#	-num_times 1 
 fi
 
-popd
+#============================================================
+# Cleanup
+popd > /dev/null
 
 # echo the PID of xplanet
 #echo $!

@@ -14,3 +14,6 @@ execute ./startxplanet -h
    -s Start (restart) Xplanet
    -h Print this help
 
+Other good resources for Xplanet on OSX:
+      http://themindfulbit.com/blog/fun-with-xplanet
+      http://eafarris.com/xplanet-on-osx.html
